@@ -32,7 +32,7 @@ class SplashScreenActivity : AppCompatActivity() {
         }
 
         Handler().postDelayed(Runnable {
-            val intent = Intent(this@SplashScreenActivity, ListaContatosActivity::class.java)
+            val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
 //            intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
             startActivity(intent)
             this@SplashScreenActivity.finish()
