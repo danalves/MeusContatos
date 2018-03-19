@@ -3,15 +3,70 @@
     android:id="@+id/fragment_add"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="8dp">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Cadastrar Novo Contato"/>
-    
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Novo Contato"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/ivFotoCadastro"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/contact"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome:"
+        android:textSize="16sp"/>
+
     <EditText
-        android:layout_width=""
-        android:layout_height="" />
+        android:id="@+id/etNomeCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoComplete"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E-mail:"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/etEmailCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textWebEmailAddress"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Telefone:"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/etTelCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Endereço:"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/etEnderecoCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
