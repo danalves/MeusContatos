@@ -1,0 +1,92 @@
+package com.daniloalvesvieira.meuscontatos.adapter
+
+import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.ViewGroup
+import com.daniloalvesvieira.meuscontatos.model.Contato
+import android.widget.AdapterView.OnItemClickListener
+import android.view.LayoutInflater
+import android.R.attr.onClick
+import android.view.View
+import android.widget.ImageView
+import com.daniloalvesvieira.meuscontatos.R.id.ivLogo
+import android.widget.TextView
+import com.daniloalvesvieira.meuscontatos.R
+import java.nio.file.Files.size
+import com.daniloalvesvieira.meuscontatos.R.id.ivLogo
+import android.R.string.cancel
+import sun.security.krb5.internal.KDCOptions.with
+
+
+
+
+class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : RecyclerView.Adapter<ContatosAdapter.ContatoItemViewHolder> {
+
+    private var context: Context
+    private var layoutInflater: LayoutInflater
+    private var contatos: List<Contato>? = null
+    private var listener: OnItemClickListener? = null
+
+    init{
+        context = _context
+        layoutInflater = LayoutInflater.from(context)
+        contatos = _contatos
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContatoItemViewHolder {
+        val itemView = layoutInflater.inflate(R.layout.item_contato, parent, false)
+        val contatoItemViewHolder = ContatoItemViewHolder(itemView)
+        return contatoItemViewHolder
+    }
+
+    override fun onBindViewHolder(holder: ContatoItemViewHolder, position: Int) {
+        val contato = contatos!!.get(position)
+        holder.tvNome.setText(android.getNome())
+        holder.tvAPI.setText(android.getApi())
+        holder.tvVersao.setText(android.getVersao())
+
+        Picasso.with(context).load(android.getUrlImagem())
+                .error(R.drawable.cancel)
+                .placeholder(R.drawable.loading)
+                .into(holder.ivLogo)
+
+    }
+
+    fun getItem(position: Int): Contato {
+        return contatos!!.get(position)
+    }
+
+    override fun getItemCount(): Int {
+        return contatos!!.size
+    }
+
+    fun setClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+
+    }
+
+    class ContatoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        private var ivFotoContato: ImageView
+        private var tvNomeContato: TextView
+        private var tvEmailContato: TextView
+        private var tvNumeroContato: TextView
+
+        init {
+
+            ivFotoContato = itemView.findViewById(R.id.ivFotoContato)
+            tvNomeContato = itemView.findViewById(R.id.tvNomeContato)
+            tvEmailContato = itemView.findViewById(R.id.tvEmailContato)
+            tvNumeroContato = itemView.findViewById(R.id.tvNumeroContato)
+
+            itemView.setOnClickListener(this)
+
+        }
+
+        fun onClick(v: View) {
+            if (listener != null) listener.onClick(v, adapterPosition)
+
+        }
+    }
+
+}

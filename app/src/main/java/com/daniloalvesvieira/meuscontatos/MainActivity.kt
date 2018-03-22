@@ -1,6 +1,10 @@
 package com.daniloalvesvieira.meuscontatos
 
 
+import android.annotation.TargetApi
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -22,17 +26,29 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         navigation.setOnNavigationItemSelectedListener(this)
         navigation.selectedItemId = R.id.action_list
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
+        val upArrow = resources.getDrawable(R.drawable.abc_ic_ab_back_material);
+        upArrow.setColorFilter(resources.getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP);
+        supportActionBar?.setHomeAsUpIndicator(upArrow);
 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.action_add -> changeFragment(AddFragment())
-            R.id.action_list -> changeFragment(ListFragment())
-            R.id.action_info -> changeFragment(InfoFragment())
+            R.id.action_add -> {
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                changeFragment(AddFragment())
+            }
+            R.id.action_list -> {
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                changeFragment(ListFragment())
+            }
+            R.id.action_info -> {
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                changeFragment(InfoFragment())
+            }
         }
 
         return true
@@ -41,14 +57,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item?.itemId) {
-            R.id.home -> {
-                val count = fragmentManager.backStackEntryCount
-
-                if (count == 0) {
-                    super.onBackPressed()
-                } else {
-                    fragmentManager.popBackStack()
-                }
+            android.R.id.home -> {
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                navigation.selectedItemId = R.id.action_list
+                changeFragment(ListFragment())
             }
         }
         return true
@@ -63,15 +75,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     override fun onBackPressed() {
-
-        val count = fragmentManager.backStackEntryCount
-
-        if (count == 0) {
-            super.onBackPressed()
-        } else {
-            fragmentManager.popBackStack()
-        }
-
+        super.onBackPressed()
+        finish()
     }
 
 }
