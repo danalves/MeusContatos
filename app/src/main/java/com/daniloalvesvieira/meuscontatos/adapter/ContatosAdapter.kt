@@ -4,7 +4,7 @@ import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.daniloalvesvieira.meuscontatos.model.Contato
-import android.widget.AdapterView.OnItemClickListener
+
 import android.view.LayoutInflater
 import android.R.attr.onClick
 import android.view.View
@@ -12,15 +12,10 @@ import android.widget.ImageView
 import com.daniloalvesvieira.meuscontatos.R.id.ivLogo
 import android.widget.TextView
 import com.daniloalvesvieira.meuscontatos.R
-import java.nio.file.Files.size
-import com.daniloalvesvieira.meuscontatos.R.id.ivLogo
-import android.R.string.cancel
-import sun.security.krb5.internal.KDCOptions.with
+import com.daniloalvesvieira.meuscontatos.listener.OnItemClickListener
 
 
-
-
-class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : RecyclerView.Adapter<ContatosAdapter.ContatoItemViewHolder> {
+class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : RecyclerView.Adapter<ContatosAdapter.ContatoItemViewHolder>() {
 
     private var context: Context
     private var layoutInflater: LayoutInflater
@@ -41,14 +36,14 @@ class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : Rec
 
     override fun onBindViewHolder(holder: ContatoItemViewHolder, position: Int) {
         val contato = contatos!!.get(position)
-        holder.tvNome.setText(android.getNome())
-        holder.tvAPI.setText(android.getApi())
-        holder.tvVersao.setText(android.getVersao())
+        holder.tvNomeContato.setText(contato.nome)
+        holder.tvEmailContato.setText(contato.email)
+        holder.tvNumeroContato.setText(contato.telefone)
 
-        Picasso.with(context).load(android.getUrlImagem())
-                .error(R.drawable.cancel)
-                .placeholder(R.drawable.loading)
-                .into(holder.ivLogo)
+//        Picasso.with(context).load(android.getUrlImagem())
+//                .error(R.drawable.cancel)
+//                .placeholder(R.drawable.loading)
+//                .into(holder.ivLogo)
 
     }
 
@@ -65,12 +60,12 @@ class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : Rec
 
     }
 
-    class ContatoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ContatoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        private var ivFotoContato: ImageView
-        private var tvNomeContato: TextView
-        private var tvEmailContato: TextView
-        private var tvNumeroContato: TextView
+        var ivFotoContato: ImageView
+        var tvNomeContato: TextView
+        var tvEmailContato: TextView
+        var tvNumeroContato: TextView
 
         init {
 
@@ -83,8 +78,8 @@ class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : Rec
 
         }
 
-        fun onClick(v: View) {
-            if (listener != null) listener.onClick(v, adapterPosition)
+        override fun onClick(v: View) {
+            if (listener != null) listener!!.onClick(v, adapterPosition)
 
         }
     }
