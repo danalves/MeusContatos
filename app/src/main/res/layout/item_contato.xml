@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="#000000">
 
     <ImageView
         android:id="@+id/ivFotoContato"
@@ -24,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
             tool:text="Fulano de Tal" />
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="15sp"
             android:textStyle="italic"
             tool:text="fulano@detal.com" />
@@ -43,7 +44,7 @@
             android:id="@+id/tvNumeroContato"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="15sp"
             android:textStyle="italic"
             tool:text="11 98765-4321" />

@@ -1,72 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_add"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
     android:padding="8dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Cadastrar Novo Contato"
-        android:textSize="20sp"
-        android:gravity="center"/>
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/ivFotoCadastro"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:src="@drawable/contact"/>
+        android:layout_marginTop="16dp"
+        android:src="@drawable/contact" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nome:"
-        android:textSize="16sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etNomeCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textAutoComplete"/>
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="E-mail:"
-        android:textSize="16sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etEmailCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textWebEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Telefone:"
-        android:textSize="16sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etTelCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone"/>
+        android:inputType="phone"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Endereço:"
-        android:textSize="16sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etEnderecoCadastro"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:inputType="textPostalAddress"/>
 
 </LinearLayout>

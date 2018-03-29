@@ -7,11 +7,19 @@
     android:orientation="vertical"
     tools:context="com.daniloalvesvieira.meuscontatos.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/content_main"
+    <!--<FrameLayout-->
+        <!--android:id="@+id/content_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="9"/>-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"/>
+        android:layout_weight="9"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_alignParentTop="true"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -19,9 +27,13 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:background="#000000"
         app:itemTextColor="#ffe100"
         app:itemIconTint="#ffe100"
         app:menu="@menu/navigation_itens"/>
+
+
+
 
 </LinearLayout>
