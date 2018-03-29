@@ -1,9 +1,7 @@
 package com.daniloalvesvieira.meuscontatos.room
 
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
+import android.arch.persistence.room.OnConflictStrategy.REPLACE
 
 @Dao
 interface ContatoDao {
@@ -19,6 +17,9 @@ interface ContatoDao {
 
     @Insert
     fun insertAll(vararg contatos: ContatoEntity)
+
+    @Update(onConflict = REPLACE)
+    fun updateTask(contatoEntity: ContatoEntity)
 
     @Delete
     fun delete(contatoEntity: ContatoEntity)

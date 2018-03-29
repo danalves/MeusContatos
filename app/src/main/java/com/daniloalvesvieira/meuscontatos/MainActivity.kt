@@ -20,17 +20,20 @@ import com.daniloalvesvieira.meuscontatos.fragment.ListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.nio.file.Files.size
 import android.support.v4.app.FragmentStatePagerAdapter
-
+import com.daniloalvesvieira.meuscontatos.room.AppDatabase
+import android.arch.persistence.room.Room
+import android.arch.persistence.room.RoomDatabase
 
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
 
-    val fragmentManager = supportFragmentManager
     var prevMenuItem: MenuItem? = null
 
     lateinit var addFragment: AddFragment
     lateinit var listFragment: ListFragment
     lateinit var infoFragment: InfoFragment
+
+    var db: RoomDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +52,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val upArrow = resources.getDrawable(R.drawable.abc_ic_ab_back_material);
         upArrow.setColorFilter(resources.getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP);
         supportActionBar?.setHomeAsUpIndicator(upArrow);
+
+
+
 
     }
 

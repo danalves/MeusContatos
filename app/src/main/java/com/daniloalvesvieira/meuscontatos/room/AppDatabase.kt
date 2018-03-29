@@ -4,7 +4,7 @@ import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.Database
 
 
-@Database(entities = Array<ContatoEntity::class.java>(), version = 1)
+@Database(entities = arrayOf(ContatoEntity::class), version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun userDao(): UserDao
+    abstract fun contatoDao(): ContatoDao
 }
