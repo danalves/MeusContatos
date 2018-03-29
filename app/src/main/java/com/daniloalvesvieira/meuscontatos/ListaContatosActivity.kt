@@ -7,6 +7,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.widget.SearchView
+import android.content.Intent
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import com.daniloalvesvieira.meuscontatos.adapter.ContatosAdapter
+import com.daniloalvesvieira.meuscontatos.model.Contato
+
 
 class ListaContatosActivity : AppCompatActivity() {
 
@@ -27,6 +33,8 @@ class ListaContatosActivity : AppCompatActivity() {
 
         return true
     }
+
+
 }
 
 

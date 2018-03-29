@@ -15,7 +15,7 @@ import com.daniloalvesvieira.meuscontatos.R
 import com.daniloalvesvieira.meuscontatos.listener.OnItemClickListener
 
 
-class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : RecyclerView.Adapter<ContatosAdapter.ContatoItemViewHolder>() {
+class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView.Adapter<ContatosAdapter.ContatoItemViewHolder>() {
 
     private var context: Context
     private var layoutInflater: LayoutInflater
@@ -39,6 +39,7 @@ class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : Rec
         holder.tvNomeContato.setText(contato.nome)
         holder.tvEmailContato.setText(contato.email)
         holder.tvNumeroContato.setText(contato.telefone)
+        holder.ivFotoContato.setImageResource(R.drawable.contact)
 
 //        Picasso.with(context).load(android.getUrlImagem())
 //                .error(R.drawable.cancel)
@@ -68,20 +69,18 @@ class ContatosAdapter(val _context: Context, val _contatos: List<Contato>) : Rec
         var tvNumeroContato: TextView
 
         init {
-
             ivFotoContato = itemView.findViewById(R.id.ivFotoContato)
             tvNomeContato = itemView.findViewById(R.id.tvNomeContato)
             tvEmailContato = itemView.findViewById(R.id.tvEmailContato)
             tvNumeroContato = itemView.findViewById(R.id.tvNumeroContato)
 
             itemView.setOnClickListener(this)
-
         }
 
         override fun onClick(v: View) {
             if (listener != null) listener!!.onClick(v, adapterPosition)
-
         }
+
     }
 
 }
