@@ -1,6 +1,7 @@
 package com.daniloalvesvieira.meuscontatos.fragment
 
 
+import android.arch.persistence.room.Room
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,6 +18,7 @@ import com.daniloalvesvieira.meuscontatos.R
 import com.daniloalvesvieira.meuscontatos.adapter.ContatosAdapter
 import com.daniloalvesvieira.meuscontatos.listener.OnItemClickListener
 import com.daniloalvesvieira.meuscontatos.model.Contato
+import com.daniloalvesvieira.meuscontatos.room.AppDatabase
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
@@ -27,6 +29,7 @@ class ListFragment : Fragment() {
 
     private var mAdapter: ContatosAdapter? = null
     var recyclerView: RecyclerView? = null
+    var db: AppDatabase? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,13 +37,13 @@ class ListFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_list, container, false)
         recyclerView = view.findViewById(R.id.rvListaContatos)
 
-        var data: MutableList<Contato> = ArrayList<Contato>()
+        db = Room.databaseBuilder(context, AppDatabase::class.java, "database-name")
+                .allowMainThreadQueries().build()
 
-        for (i in 0 until 15) {
-            val contato = Contato("Danilo", "danilo@teste.com.br", "(11) 99240-2815")
-            contato.nome = "Danilo"
-            data.add(contato)
-        }
+        var data = db!!.contatoDao().getAll()
+
+
+
         setUpRecyclerView(data)
 
         return view

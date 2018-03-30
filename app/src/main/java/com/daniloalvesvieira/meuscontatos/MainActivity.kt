@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var listFragment: ListFragment
     lateinit var infoFragment: InfoFragment
 
-    var db: RoomDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +51,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val upArrow = resources.getDrawable(R.drawable.abc_ic_ab_back_material);
         upArrow.setColorFilter(resources.getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP);
         supportActionBar?.setHomeAsUpIndicator(upArrow);
-
-
-
 
     }
 
