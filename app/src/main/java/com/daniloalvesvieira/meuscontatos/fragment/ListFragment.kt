@@ -40,13 +40,14 @@ class ListFragment : Fragment() {
         db = Room.databaseBuilder(context, AppDatabase::class.java, "database-name")
                 .allowMainThreadQueries().build()
 
-        var data = db!!.contatoDao().getAll()
-
-
-
-        setUpRecyclerView(data)
+        atualizarLista()
 
         return view
+    }
+
+    fun atualizarLista() {
+        val data = db!!.contatoDao().getAll()
+        setUpRecyclerView(data)
     }
 
     private fun setUpRecyclerView(data: List<Contato>) {

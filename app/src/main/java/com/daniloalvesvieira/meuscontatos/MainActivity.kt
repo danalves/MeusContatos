@@ -81,11 +81,17 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         when (item?.itemId) {
             android.R.id.home -> {
-                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+//                supportActionBar?.setDisplayHomeAsUpEnabled(false)
 //                navigation.selectedItemId = R.id.action_list
 //                changeFragment(ListFragment())
                 viewpager.currentItem = 1
             }
+//            Para ser tratado no fragment
+            R.id.iSalvar -> {
+                return false
+            }
+
+
         }
         return true
     }
@@ -132,8 +138,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         viewPager.adapter = adapter
     }
 
-    private inner class ViewPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
+    inner class ViewPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
         private val mFragmentList: MutableList<Fragment> = ArrayList()
+
         override fun getItem(position: Int): Fragment {
             return mFragmentList.get(position)
         }
