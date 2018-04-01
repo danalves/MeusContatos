@@ -2,12 +2,10 @@ package com.daniloalvesvieira.meuscontatos.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.view.ViewGroup
 import com.daniloalvesvieira.meuscontatos.model.Contato
 
-import android.view.LayoutInflater
 import android.R.attr.onClick
-import android.view.View
+import android.view.*
 import android.widget.ImageView
 import com.daniloalvesvieira.meuscontatos.R.id.ivLogo
 import android.widget.TextView
@@ -61,7 +59,7 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
 
     }
 
-    inner class ContatoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ContatoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnCreateContextMenuListener {
 
         var ivFotoContato: ImageView
         var tvNomeContato: TextView
@@ -75,10 +73,17 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
             tvNumeroContato = itemView.findViewById(R.id.tvNumeroContato)
 
             itemView.setOnClickListener(this)
+            itemView.setOnCreateContextMenuListener(this); //REGISTER ONCREATE MENU LISTENER
         }
 
         override fun onClick(v: View) {
             if (listener != null) listener!!.onClick(v, adapterPosition)
+        }
+
+        override fun onCreateContextMenu(p0: ContextMenu?, p1: View?, p2: ContextMenu.ContextMenuInfo?) {
+
+            p0!!.add(Menu.NONE, 1, 1, "Opção 1")
+
         }
 
     }

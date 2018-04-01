@@ -63,6 +63,7 @@ class ListFragment : Fragment() {
                 i.putExtra("NOME", contato.nome)
                 i.putExtra("EMAIL", contato.email)
                 i.putExtra("TELEFONE", contato.telefone)
+                i.putExtra("ENDERECO", contato.endereco)
                 startActivity(i)
 
             }
