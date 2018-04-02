@@ -60,12 +60,12 @@ class ListFragment : Fragment() {
             override fun onClick(view: View, position: Int) {
                 val contato = mAdapter!!.getItem(position)
                 val i = Intent(activity, DetalheActivity::class.java)
+                i.putExtra("ID", contato.contatoId)
                 i.putExtra("NOME", contato.nome)
                 i.putExtra("EMAIL", contato.email)
                 i.putExtra("TELEFONE", contato.telefone)
                 i.putExtra("ENDERECO", contato.endereco)
                 startActivity(i)
-
             }
         })
     }

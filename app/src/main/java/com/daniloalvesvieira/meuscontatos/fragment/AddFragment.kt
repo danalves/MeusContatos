@@ -29,8 +29,6 @@ class AddFragment : Fragment() {
         db = Room.databaseBuilder(context, AppDatabase::class.java, "database-name")
                 .allowMainThreadQueries().build()
 
-
-
         return view
     }
 
@@ -42,6 +40,7 @@ class AddFragment : Fragment() {
         when (item?.itemId) {
             R.id.iSalvar -> {
                 inserirContato()
+
                 etNomeCadastro.setText("")
                 etEmailCadastro.setText("")
                 etTelCadastro.setText("")
