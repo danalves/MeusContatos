@@ -20,12 +20,13 @@ import com.daniloalvesvieira.meuscontatos.listener.OnItemClickListener
 import com.daniloalvesvieira.meuscontatos.model.Contato
 import com.daniloalvesvieira.meuscontatos.room.AppDatabase
 import kotlinx.android.synthetic.main.fragment_list.*
+import java.io.Serializable
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), Serializable {
 
     private var mAdapter: ContatosAdapter? = null
     var recyclerView: RecyclerView? = null
@@ -65,6 +66,7 @@ class ListFragment : Fragment() {
                 i.putExtra("EMAIL", contato.email)
                 i.putExtra("TELEFONE", contato.telefone)
                 i.putExtra("ENDERECO", contato.endereco)
+                i.putExtra("LISTFRAGMENT",this@ListFragment)
                 startActivity(i)
             }
         })
