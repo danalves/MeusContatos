@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
+import android.util.Log
 import com.daniloalvesvieira.meuscontatos.DetalheActivity
 
 import com.daniloalvesvieira.meuscontatos.R
@@ -66,10 +67,14 @@ class ListFragment : Fragment(), Serializable {
                 i.putExtra("EMAIL", contato.email)
                 i.putExtra("TELEFONE", contato.telefone)
                 i.putExtra("ENDERECO", contato.endereco)
-                i.putExtra("LISTFRAGMENT",this@ListFragment)
-                startActivity(i)
+//                i.putExtra("LISTFRAGMENT",this@ListFragment)
+                startActivityForResult(i, 100)
             }
         })
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        atualizarLista()
+    }
 }

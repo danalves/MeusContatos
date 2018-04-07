@@ -1,5 +1,6 @@
 package com.daniloalvesvieira.meuscontatos
 
+import android.app.Activity
 import android.arch.persistence.room.Room
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -34,7 +35,7 @@ class DetalheActivity : AppCompatActivity() {
 
             contato!!.contatoId = intent.getLongExtra("ID", 0)
 
-            listFragment = intent.getSerializableExtra("LISTFRAGMENT") as ListFragment
+//            listFragment = intent.getSerializableExtra("LISTFRAGMENT") as ListFragment
         }
     }
 
@@ -54,7 +55,8 @@ class DetalheActivity : AppCompatActivity() {
                 val db = Room.databaseBuilder(this, AppDatabase::class.java, "database-name")
                         .allowMainThreadQueries().build()
                 db.contatoDao().delete(contato)
-                listFragment!!.atualizarLista()
+  
+                setResult(Activity.RESULT_OK)
                 finish()
             }
 
