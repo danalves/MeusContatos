@@ -2,10 +2,13 @@ package com.daniloalvesvieira.meuscontatos
 
 import android.app.Activity
 import android.arch.persistence.room.Room
+import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.daniloalvesvieira.meuscontatos.fragment.ListFragment
 import com.daniloalvesvieira.meuscontatos.model.Contato
 import com.daniloalvesvieira.meuscontatos.room.AppDatabase
@@ -38,6 +41,30 @@ class DetalheActivity : AppCompatActivity() {
 //            listFragment = intent.getSerializableExtra("LISTFRAGMENT") as ListFragment
         }
     }
+
+    fun ligar(v: View) {
+        val intentTel = Intent(Intent.ACTION_VIEW)
+        intentTel.data = Uri.parse("tel:" + contato.telefone)
+        startActivity(intentTel)
+    }
+
+    fun compartilhar(v: View) {
+
+        val dadosContato = "NOME: " + contato.nome + "\n" +
+                           "E-MAIL: " + contato.email
+
+        val sendIntent = Intent(Intent.ACTION_SEND)
+        sendIntent.putExtra(Intent.EXTRA_TEXT, dadosContato)
+        sendIntent.type = "text/plain"
+        startActivity(Intent.createChooser(sendIntent, "Escolhe aí"))
+    }
+
+    fun mostrarEndereco(v: View) {
+        val i = Intent(this, MapActivity::class.java)
+        i.putExtra("ENDERECO", contato.endereco)
+        startActivity(i)
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
