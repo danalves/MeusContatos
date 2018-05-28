@@ -13,6 +13,7 @@ import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.util.Log
+import android.view.MenuItem
 import com.daniloalvesvieira.meuscontatos.DetalheActivity
 
 import com.daniloalvesvieira.meuscontatos.R
@@ -76,5 +77,18 @@ class ListFragment : Fragment(), Serializable {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         atualizarLista()
+    }
+
+    override fun onContextItemSelected(item: MenuItem?): Boolean {
+
+        when (item!!.itemId) {
+            4 -> {
+                val db = Room.databaseBuilder(context, AppDatabase::class.java, "database-name")
+                        .allowMainThreadQueries().build()
+                db.contatoDao().delete(contato)
+            }
+        }
+
+        return super.onContextItemSelected(item)
     }
 }
