@@ -1,18 +1,16 @@
 package com.daniloalvesvieira.meuscontatos.fragment
 
 
-import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.Room
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
-
+import com.daniloalvesvieira.meuscontatos.MainActivity
 import com.daniloalvesvieira.meuscontatos.R
 import com.daniloalvesvieira.meuscontatos.model.Contato
-import kotlinx.android.synthetic.main.fragment_add.*
 import com.daniloalvesvieira.meuscontatos.room.AppDatabase
-import android.arch.persistence.room.Room
-import com.daniloalvesvieira.meuscontatos.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_add.*
 
 /**
  * A simple [Fragment] subclass.

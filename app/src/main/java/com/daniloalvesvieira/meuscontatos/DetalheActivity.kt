@@ -4,8 +4,8 @@ import android.app.Activity
 import android.arch.persistence.room.Room
 import android.content.Intent
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_detalhe.*
 class DetalheActivity : AppCompatActivity() {
 
     lateinit var contato: Contato
-    var listFragment: ListFragment? = null
+    // var listFragment: ListFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +76,13 @@ class DetalheActivity : AppCompatActivity() {
 
         when (item?.itemId) {
             R.id.iEditar -> {
-
+                val i = Intent(this, EdicaoActivity::class.java)
+                i.putExtra("ID", contato.contatoId)
+                i.putExtra("NOME", contato.nome)
+                i.putExtra("EMAIL", contato.email)
+                i.putExtra("TELEFONE", contato.telefone)
+                i.putExtra("ENDERECO", contato.endereco)
+                startActivityForResult(i, 200)
             }
             R.id.iDeletar -> {
                 val db = Room.databaseBuilder(this, AppDatabase::class.java, "database-name")
@@ -88,8 +94,16 @@ class DetalheActivity : AppCompatActivity() {
             }
 
         }
-
         return true
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 200) {
+            setResult(Activity.RESULT_OK)
+            finish()
+        }
     }
 
 }

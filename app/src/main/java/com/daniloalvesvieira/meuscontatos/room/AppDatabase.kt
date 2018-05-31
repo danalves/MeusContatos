@@ -1,7 +1,7 @@
 package com.daniloalvesvieira.meuscontatos.room
 
-import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.Database
+import android.arch.persistence.room.RoomDatabase
 import com.daniloalvesvieira.meuscontatos.model.Contato
 
 

@@ -1,12 +1,12 @@
 package com.daniloalvesvieira.meuscontatos
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.support.v7.app.AppCompatActivity
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_splash_screen.*
-import android.content.Intent
-import android.os.Handler
 
 
 class SplashScreenActivity : AppCompatActivity() {

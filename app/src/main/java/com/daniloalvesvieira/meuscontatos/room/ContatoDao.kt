@@ -7,7 +7,7 @@ import com.daniloalvesvieira.meuscontatos.model.Contato
 @Dao
 interface ContatoDao {
 
-    @Query("SELECT * FROM contato")
+    @Query("SELECT * FROM contato ORDER BY nome ASC")
     fun getAll(): List<Contato>
 
     @Query("SELECT * FROM contato WHERE contatoId IN (:contatoIds)")

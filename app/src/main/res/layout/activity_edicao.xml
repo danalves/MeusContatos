@@ -24,8 +24,8 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tvNomeDetalhe"
+    <EditText
+        android:id="@+id/etNomeEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
@@ -38,8 +38,8 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tvEmailDetalhe"
+    <EditText
+        android:id="@+id/etEmailEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
@@ -53,13 +53,12 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tvTelDetalhe"
+    <EditText
+        android:id="@+id/etTelEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:onClick="ligar"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -68,12 +67,11 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tvEnderecoDetalhe"
+    <EditText
+        android:id="@+id/etEnderecoEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:onClick="mostrarEndereco"/>
+        android:textSize="20sp"/>
 
 </LinearLayout>

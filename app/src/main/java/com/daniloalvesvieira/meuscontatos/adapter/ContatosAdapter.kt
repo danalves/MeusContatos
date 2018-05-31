@@ -1,22 +1,16 @@
 package com.daniloalvesvieira.meuscontatos.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
-import com.daniloalvesvieira.meuscontatos.model.Contato
-
-import android.R.attr.onClick
 import android.content.Intent
 import android.net.Uri
+import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.ImageView
-import com.daniloalvesvieira.meuscontatos.R.id.ivLogo
 import android.widget.TextView
 import com.daniloalvesvieira.meuscontatos.MapActivity
 import com.daniloalvesvieira.meuscontatos.R
 import com.daniloalvesvieira.meuscontatos.listener.OnItemClickListener
-import android.widget.AdapterView.AdapterContextMenuInfo
-
-
+import com.daniloalvesvieira.meuscontatos.model.Contato
 
 
 class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView.Adapter<ContatosAdapter.ContatoItemViewHolder>() {
@@ -25,11 +19,13 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
     private var layoutInflater: LayoutInflater
     private var contatos: List<Contato>? = null
     private var listener: OnItemClickListener? = null
+    private var posicaoContextMenu: Int
 
     init{
         context = _context
         layoutInflater = LayoutInflater.from(context)
         contatos = _contatos
+        posicaoContextMenu = 0
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContatoItemViewHolder {
@@ -46,11 +42,24 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
         holder.ivFotoContato.setImageResource(R.drawable.contact)
         holder.contato = contato
 
+        holder.itemView.setOnLongClickListener {
+            setPosicaoContextMenu(holder.adapterPosition)
+            return@setOnLongClickListener false
+        }
+
 //        Picasso.with(context).load(android.getUrlImagem())
 //                .error(R.drawable.cancel)
 //                .placeholder(R.drawable.loading)
 //                .into(holder.ivLogo)
 
+    }
+
+    fun setPosicaoContextMenu(posicao: Int) {
+        posicaoContextMenu = posicao
+    }
+
+    fun getPosicaoContextMenu(): Int {
+        return posicaoContextMenu
     }
 
     fun getItem(position: Int): Contato {
@@ -68,7 +77,7 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
 
     inner class ContatoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
                                                         View.OnClickListener,
-                                                        View.OnCreateContextMenuListener {
+                                                        View.OnCreateContextMenuListener{
 
         var ivFotoContato: ImageView
         var tvNomeContato: TextView
@@ -84,7 +93,7 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
             contato = null
 
             itemView.setOnClickListener(this)
-            itemView.setOnCreateContextMenuListener(this); //REGISTER ONCREATE MENU LISTENER
+            itemView.setOnCreateContextMenuListener(this);
         }
 
         override fun onClick(v: View) {
@@ -92,17 +101,6 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
         }
 
         override fun onCreateContextMenu(p0: ContextMenu?, p1: View?, p2: ContextMenu.ContextMenuInfo?) {
-
-            // Get the info on which item was selected
-            val info = p2 as AdapterContextMenuInfo
-
-            // Get the Adapter behind your ListView (this assumes you're using
-            // a ListActivity; if you're not, you'll have to store the Adapter yourself
-            // in some way that can be accessed here.)
-            val adapter = getListAdapter()
-
-            // Retrieve the item that was clicked on
-            val item = adapter.getItem(info.position)
             var itemTel = p0!!.add(Menu.NONE, 1, 1, "Ligar")
             var intentTel = Intent(Intent.ACTION_VIEW)
             intentTel.data = Uri.parse("tel:" + contato!!.telefone)
@@ -118,6 +116,9 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
             i.putExtra("ENDERECO", contato!!.endereco)
             itemMapa.intent = i
 
+            p0!!.add(Menu.NONE, 4, 4, "Editar Contato")
+
+            p0!!.add(Menu.NONE, 5, 5, "Excluir Contato")
         }
 
     }

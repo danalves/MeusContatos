@@ -2,26 +2,23 @@ package com.daniloalvesvieira.meuscontatos.fragment
 
 
 import android.arch.persistence.room.Room
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.content.Intent
-import android.support.v7.widget.RecyclerView
-import android.util.AttributeSet
-import android.util.Log
-import android.view.MenuItem
+import android.widget.AdapterView.AdapterContextMenuInfo
 import com.daniloalvesvieira.meuscontatos.DetalheActivity
-
+import com.daniloalvesvieira.meuscontatos.EdicaoActivity
 import com.daniloalvesvieira.meuscontatos.R
 import com.daniloalvesvieira.meuscontatos.adapter.ContatosAdapter
 import com.daniloalvesvieira.meuscontatos.listener.OnItemClickListener
 import com.daniloalvesvieira.meuscontatos.model.Contato
 import com.daniloalvesvieira.meuscontatos.room.AppDatabase
-import kotlinx.android.synthetic.main.fragment_list.*
 import java.io.Serializable
 
 
@@ -53,6 +50,33 @@ class ListFragment : Fragment(), Serializable {
         setUpRecyclerView(data)
     }
 
+    override fun onContextItemSelected(item: MenuItem?): Boolean {
+
+        when (item!!.itemId) {
+
+            // 4 - Alterar Contato
+            4 -> {
+                val contato = mAdapter!!.getItem(mAdapter!!.getPosicaoContextMenu())
+                val i = Intent(activity, EdicaoActivity::class.java)
+                i.putExtra("ID", contato.contatoId)
+                i.putExtra("NOME", contato.nome)
+                i.putExtra("EMAIL", contato.email)
+                i.putExtra("TELEFONE", contato.telefone)
+                i.putExtra("ENDERECO", contato.endereco)
+                startActivityForResult(i, 200)
+            }
+
+            // 5 - Excluir Contato
+            5 -> {
+                db!!.contatoDao().delete(mAdapter!!.getItem(mAdapter!!.getPosicaoContextMenu()))
+                atualizarLista()
+            }
+        }
+
+        return super.onContextItemSelected(item)
+    }
+
+
     private fun setUpRecyclerView(data: List<Contato>) {
 
         mAdapter = ContatosAdapter(context, data)
@@ -79,16 +103,5 @@ class ListFragment : Fragment(), Serializable {
         atualizarLista()
     }
 
-    override fun onContextItemSelected(item: MenuItem?): Boolean {
 
-        when (item!!.itemId) {
-            4 -> {
-                val db = Room.databaseBuilder(context, AppDatabase::class.java, "database-name")
-                        .allowMainThreadQueries().build()
-                db.contatoDao().delete(contato)
-            }
-        }
-
-        return super.onContextItemSelected(item)
-    }
 }

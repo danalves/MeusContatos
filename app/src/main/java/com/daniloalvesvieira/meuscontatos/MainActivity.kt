@@ -1,28 +1,19 @@
 package com.daniloalvesvieira.meuscontatos
 
 
-import android.annotation.TargetApi
-import android.graphics.Color
 import android.graphics.PorterDuff
-import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
-import android.util.Log
-import android.view.Menu
+import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.daniloalvesvieira.meuscontatos.fragment.AddFragment
 import com.daniloalvesvieira.meuscontatos.fragment.InfoFragment
 import com.daniloalvesvieira.meuscontatos.fragment.ListFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import java.nio.file.Files.size
-import android.support.v4.app.FragmentStatePagerAdapter
-import com.daniloalvesvieira.meuscontatos.room.AppDatabase
-import android.arch.persistence.room.Room
-import android.arch.persistence.room.RoomDatabase
 
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
