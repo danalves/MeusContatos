@@ -54,8 +54,22 @@ class ListFragment : Fragment(), Serializable {
 
         when (item!!.itemId) {
 
-            // 4 - Alterar Contato
             4 -> {
+                val contato = mAdapter!!.getItem(mAdapter!!.getPosicaoContextMenu())
+                val dadosContato =  "Contato Compartilhado\n\n" +
+                        "Nome: " + contato.nome + "\n" +
+                        "Tel: " + contato.telefone + "\n" +
+                        "E-mail: " + contato.email + "\n" +
+                        "Endereço: " + contato.endereco + "\n"
+
+                val sendIntent = Intent(Intent.ACTION_SEND)
+                sendIntent.putExtra(Intent.EXTRA_TEXT, dadosContato)
+                sendIntent.type = "text/plain"
+                startActivity(Intent.createChooser(sendIntent, "Compartilhar via..."))
+            }
+
+            // 5 - Alterar Contato
+            5 -> {
                 val contato = mAdapter!!.getItem(mAdapter!!.getPosicaoContextMenu())
                 val i = Intent(activity, EdicaoActivity::class.java)
                 i.putExtra("ID", contato.contatoId)
@@ -66,8 +80,8 @@ class ListFragment : Fragment(), Serializable {
                 startActivityForResult(i, 200)
             }
 
-            // 5 - Excluir Contato
-            5 -> {
+            // 6 - Excluir Contato
+            6 -> {
                 db!!.contatoDao().delete(mAdapter!!.getItem(mAdapter!!.getPosicaoContextMenu()))
                 atualizarLista()
             }

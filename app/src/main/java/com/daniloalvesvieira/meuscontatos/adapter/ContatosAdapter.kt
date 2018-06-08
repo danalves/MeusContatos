@@ -116,9 +116,11 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
             i.putExtra("ENDERECO", contato!!.endereco)
             itemMapa.intent = i
 
-            p0!!.add(Menu.NONE, 4, 4, "Editar Contato")
+            p0!!.add(Menu.NONE, 4, 4, "Compartilhar Contato")
 
-            p0!!.add(Menu.NONE, 5, 5, "Excluir Contato")
+            p0!!.add(Menu.NONE, 5, 5, "Editar Contato")
+
+            p0!!.add(Menu.NONE, 6, 6, "Excluir Contato")
         }
 
     }

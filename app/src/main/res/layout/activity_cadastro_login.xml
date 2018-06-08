@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:background="@color/background"
+    android:padding="8dp">
+
+    <EditText
+        android:id="@+id/etEmailLoginCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        android:hint="Digite seu e-mail"
+        android:textColorHint="@color/yellow"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/etEmailLoginCadastro2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        android:hint="Confirme seu e-mail"
+        android:textColorHint="@color/yellow"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/etSenhaLoginCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:hint="Digite sua senha"
+        android:textColorHint="@color/yellow"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/etSenhaLoginCadastro2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:hint="Confirme sua senha"
+        android:textColorHint="@color/yellow"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Cadastrar"
+        android:background="@color/yellow"
+        android:onClick="cadastrar"/>
+
+</LinearLayout>

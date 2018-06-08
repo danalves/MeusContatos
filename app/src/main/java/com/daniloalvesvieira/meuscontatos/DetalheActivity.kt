@@ -48,17 +48,6 @@ class DetalheActivity : AppCompatActivity() {
         startActivity(intentTel)
     }
 
-    fun compartilhar(v: View) {
-
-        val dadosContato = "NOME: " + contato.nome + "\n" +
-                           "E-MAIL: " + contato.email
-
-        val sendIntent = Intent(Intent.ACTION_SEND)
-        sendIntent.putExtra(Intent.EXTRA_TEXT, dadosContato)
-        sendIntent.type = "text/plain"
-        startActivity(Intent.createChooser(sendIntent, "Escolhe aí"))
-    }
-
     fun mostrarEndereco(v: View) {
         val i = Intent(this, MapActivity::class.java)
         i.putExtra("ENDERECO", contato.endereco)
@@ -75,6 +64,19 @@ class DetalheActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item?.itemId) {
+
+            R.id.iCompartilhar -> {
+                val dadosContato =  "Contato Compartilhado\n\n" +
+                        "Nome: " + contato.nome + "\n" +
+                        "Tel: " + contato.telefone + "\n" +
+                        "E-mail: " + contato.email + "\n" +
+                        "Endereço: " + contato.endereco + "\n"
+
+                val sendIntent = Intent(Intent.ACTION_SEND)
+                sendIntent.putExtra(Intent.EXTRA_TEXT, dadosContato)
+                sendIntent.type = "text/plain"
+                startActivity(Intent.createChooser(sendIntent, "Compartilhar via..."))
+            }
             R.id.iEditar -> {
                 val i = Intent(this, EdicaoActivity::class.java)
                 i.putExtra("ID", contato.contatoId)
