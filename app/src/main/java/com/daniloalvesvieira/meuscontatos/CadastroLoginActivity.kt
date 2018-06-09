@@ -29,16 +29,16 @@ class CadastroLoginActivity : AppCompatActivity() {
                     if (etSenhaLoginCadastro.text.toString() == etSenhaLoginCadastro2.text.toString()) {
                         inserirFirebase()
                     } else {
-                        Toast.makeText(this, "Campos de Senha diferentes", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, R.string.diff_password, Toast.LENGTH_LONG).show()
                     }
                 } else {
-                    Toast.makeText(this, "Campos de E-mail diferentes", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, R.string.diff_email, Toast.LENGTH_LONG).show()
                 }
             } else {
-                Toast.makeText(this, "Preencher Senha", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.empty_password, Toast.LENGTH_LONG).show()
             }
         } else {
-            Toast.makeText(this, "Preencher E-mail", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.empty_email, Toast.LENGTH_LONG).show()
         }
     }
 

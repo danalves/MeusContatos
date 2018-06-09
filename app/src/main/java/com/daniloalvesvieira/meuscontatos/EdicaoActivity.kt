@@ -20,7 +20,7 @@ class EdicaoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edicao)
 
         supportActionBar?.setDisplayShowTitleEnabled(true)
-        supportActionBar?.title = "Editar Contato"
+        supportActionBar?.title = resources.getString(R.string.edit_menu)
 
         if (intent != null) {
             etNomeEdit.setText(intent.getStringExtra("NOME"))

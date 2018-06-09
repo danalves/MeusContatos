@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">Meus Contatos</string>
+    <string name="app_name">My Contacts</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_map">Endereço</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_map">Address</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email" translatable="false">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
@@ -15,7 +15,49 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
+    <string name="permission_rationale" translatable="false">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string name="call_menu">Call</string>
+    <string name="sms_menu">Send SMS</string>
+    <string name="maps_menu">Go to Maps</string>
+    <string name="share_menu">Share</string>
+    <string name="edit_menu">Edit Contact</string>
+    <string name="del_menu">Delete Contact</string>
+
+    <string name="share_chooser">Share to...</string>
+
+    <string name="diff_password">Different password fields!</string>
+    <string name="diff_email">Different e-mail fields!</string>
+    <string name="empty_password">Password field is empty!</string>
+    <string name="empty_email">E-mail field is empty!</string>
+
+    <string name="email_signup_1">Enter your e-mail</string>
+    <string name="email_signup_2">Confirm your e-mail</string>
+    <string name="password_signup_1">Enter your password</string>
+    <string name="password_signup_2">Confirm your password</string>
+    <string name="signup">Sign Up</string>
+    <string name="keep">Keep Signed In</string>
+    <string name="signin">Sign In</string>
+
+    <string name="lb_name">Name:</string>
+    <string name="lb_tel">Phone number:</string>
+    <string name="lb_email" translatable="false">E-mail:</string>
+    <string name="lb_endereco">Address:</string>
+
+    <string name="lb_add_contact">Add new contact</string>
+
+    <string name="about_author">Developed by: Danilo Alves Vieira</string>
+    <string name="about_build">Build: 1.0</string>
+
+    <string name="save_menu">Save</string>
+    <string name="del_menu2">Delete</string>
+    <string name="edit_menu2">Edit</string>
+
+    <string name="add_nav">Add new</string>
+    <string name="contacts_nav">Contacts</string>
+    <string name="about_nav">About</string>
+
+
 </resources>

@@ -65,7 +65,7 @@ class ListFragment : Fragment(), Serializable {
                 val sendIntent = Intent(Intent.ACTION_SEND)
                 sendIntent.putExtra(Intent.EXTRA_TEXT, dadosContato)
                 sendIntent.type = "text/plain"
-                startActivity(Intent.createChooser(sendIntent, "Compartilhar via..."))
+                startActivity(Intent.createChooser(sendIntent, resources.getString(R.string.share_chooser)))
             }
 
             // 5 - Alterar Contato

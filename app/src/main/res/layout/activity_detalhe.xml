@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome:"
+        android:text="@string/lb_name"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
@@ -33,7 +33,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="E-mail:"
+        android:text="@string/lb_email"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
@@ -48,7 +48,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Telefone:"
+        android:text="@string/lb_tel"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
@@ -63,7 +63,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Endereço:"
+        android:text="@string/lb_endereco"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 

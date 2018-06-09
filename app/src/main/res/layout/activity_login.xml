@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:textColor="#FFFFFF"
-        android:hint="Digite seu e-mail"
+        android:hint="@string/email_signup_1"
         android:textColorHint="@color/yellow"
         android:layout_marginTop="16dp"/>
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
-        android:hint="Digite sua senha"
+        android:hint="@string/password_signup_1"
         android:textColorHint="@color/yellow"
         android:layout_marginTop="8dp"/>
 
@@ -44,20 +44,20 @@
         android:textColor="@color/yellow"
         android:buttonTint="@color/yellow"
         android:layout_marginTop="8dp"
-        android:text="Permanecer Conectado"/>
+        android:text="@string/keep"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Entrar"
+        android:text="@string/signin"
         android:background="@color/yellow"
         android:onClick="entrar"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastre-se aqui"
+        android:text="@string/signup"
         android:textColor="@color/yellow"
         android:layout_marginTop="16dp"
         android:layout_gravity="center"

@@ -24,10 +24,10 @@ class LoginActivity : AppCompatActivity() {
             if (etSenhaLogin.text.isNotEmpty()) {
                 consultarFirebase()
             } else {
-                Toast.makeText(this, "Digite a Senha", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.empty_password, Toast.LENGTH_LONG).show()
             }
         } else {
-            Toast.makeText(this, "Digite o E-mail", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.empty_email, Toast.LENGTH_LONG).show()
         }
     }
 

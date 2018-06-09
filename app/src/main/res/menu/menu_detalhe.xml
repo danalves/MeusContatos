@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/iDeletar"
-        android:title="Excluir"
+        android:title="@string/del_menu2"
         android:icon="@drawable/ic_deletar"
         app:showAsAction="always"/>
 
     <item android:id="@+id/iEditar"
-        android:title="Editar"
+        android:title="@string/edit_menu2"
         android:icon="@drawable/ic_editar"
         app:showAsAction="always"/>
 
     <item android:id="@+id/iCompartilhar"
-        android:title="Compartilhar"
+        android:title="@string/share_menu"
         android:icon="@drawable/ic_share"
         app:showAsAction="ifRoom"/>
 

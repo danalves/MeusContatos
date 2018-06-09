@@ -101,26 +101,26 @@ class ContatosAdapter(_context: Context,_contatos: List<Contato>) : RecyclerView
         }
 
         override fun onCreateContextMenu(p0: ContextMenu?, p1: View?, p2: ContextMenu.ContextMenuInfo?) {
-            var itemTel = p0!!.add(Menu.NONE, 1, 1, "Ligar")
+            var itemTel = p0!!.add(Menu.NONE, 1, 1, R.string.call_menu)
             var intentTel = Intent(Intent.ACTION_VIEW)
             intentTel.data = Uri.parse("tel:" + contato!!.telefone)
             itemTel.intent = intentTel
 
-            var itemSMS = p0!!.add(Menu.NONE, 2, 2, "Enviar SMS")
+            var itemSMS = p0!!.add(Menu.NONE, 2, 2, R.string.sms_menu)
             var intentSMS = Intent(Intent.ACTION_VIEW)
             intentSMS.data = Uri.parse("sms:" + contato!!.telefone)
             itemSMS.intent = intentSMS
 
-            var itemMapa = p0!!.add(Menu.NONE, 3, 3, "Ver no Mapa")
+            var itemMapa = p0!!.add(Menu.NONE, 3, 3, R.string.maps_menu)
             val i = Intent(context, MapActivity::class.java)
             i.putExtra("ENDERECO", contato!!.endereco)
             itemMapa.intent = i
 
-            p0!!.add(Menu.NONE, 4, 4, "Compartilhar Contato")
+            p0!!.add(Menu.NONE, 4, 4, R.string.share_menu)
 
-            p0!!.add(Menu.NONE, 5, 5, "Editar Contato")
+            p0!!.add(Menu.NONE, 5, 5, R.string.edit_menu)
 
-            p0!!.add(Menu.NONE, 6, 6, "Excluir Contato")
+            p0!!.add(Menu.NONE, 6, 6, R.string.del_menu)
         }
 
     }

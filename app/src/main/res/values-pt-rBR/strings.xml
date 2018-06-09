@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meus Contatos</string>
+    <string name="title_activity_map">Endereço</string>
+    <string name="title_activity_login">Entrar</string>
+    <string name="prompt_password">Senha (opcional)</string>
+    <string name="action_sign_in">Entrar ou cadastrar</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="error_invalid_email">Esse endereço de email é inválido</string>
+    <string name="error_invalid_password">Essa senha é muito curta</string>
+    <string name="error_incorrect_password">Senha incorreta</string>
+    <string name="error_field_required">Esse campo é obrigatório</string>
+    <string name="call_menu">Ligar</string>
+    <string name="sms_menu">Enviar SMS</string>
+    <string name="maps_menu">Abrir mapa</string>
+    <string name="share_menu">Compartilhar</string>
+    <string name="edit_menu">Editar Contato</string>
+    <string name="del_menu">Apagar Contato</string>
+    <string name="share_chooser">Compartilhar via...</string>
+    <string name="diff_password">Campos de senha diferentes</string>
+    <string name="diff_email">Campos de e-mail diferentes</string>
+    <string name="empty_password">O campo de senha está vazio</string>
+    <string name="empty_email">O campo de e-mail está vazio</string>
+    <string name="email_signup_1">Digite o e-mail</string>
+    <string name="email_signup_2">Confirme o e-mail</string>
+    <string name="password_signup_1">Digite a senha</string>
+    <string name="password_signup_2">Confirme a senha</string>
+    <string name="signup">Cadastrar</string>
+    <string name="keep">Manter conectado</string>
+    <string name="signin">Entrar</string>
+    <string name="lb_name">Nome:</string>
+    <string name="lb_tel">Telefone:</string>
+    <string name="lb_endereco">Endereço:</string>
+    <string name="lb_add_contact">Cadastrar novo contato</string>
+    <string name="about_author">Desenvolvido por: Danilo Alves Vieira</string>
+    <string name="about_build">Versão do app: 1.0</string>
+    <string name="save_menu">Salvar</string>
+    <string name="del_menu2">Apagar</string>
+    <string name="edit_menu2">Editar</string>
+    <string name="add_nav">Cadastrar</string>
+    <string name="contacts_nav">Contatos</string>
+    <string name="about_nav">Sobre</string>
+</resources>

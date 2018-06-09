@@ -32,7 +32,7 @@ class MeuFirebaseMessagingService: FirebaseMessagingService() {
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, "channel")
                 .setSmallIcon(R.drawable.logo)
-                .setContentTitle("Meus Contatos")
+                .setContentTitle(resources.getString(R.string.app_name))
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
